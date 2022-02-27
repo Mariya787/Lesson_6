@@ -7,6 +7,8 @@ public class MantisSite {
     private LoginPage loginPage;
     private PasswordPage passwordPage;
     private MainPage mainPage;
+    private ViewIssuesPage viewIssuesPage;
+    private ReportIssuePage reportIssuePage;
 
     public MantisSite(WebDriver driver) {
         this.driver = driver;
@@ -32,4 +34,13 @@ public class MantisSite {
     public MainPage getMainPage() {
         return mainPage;
     }
+
+    public ViewIssuesPage getViewIssuesPage() {
+        return viewIssuesPage;
+    }
+
+    public ReportIssuePage getReportIssuePage() {
+        return reportIssuePage;
+    }
+
 }
