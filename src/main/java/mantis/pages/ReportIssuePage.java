@@ -11,10 +11,10 @@ public class ReportIssuePage {
     private final WebDriver driver;
     private final WebDriverWait wait;
 
-    @FindBy(css = "summary")
+    @FindBy(css = "#summary")
     private WebElement summaryInput;
 
-    @FindBy(css = "descrition")
+    @FindBy(css = "#description")
     private WebElement descriptionInput;
 
     @FindBy(xpath = "//*[@id='report_bug_form']/div/div[2]/div[2]/input")
@@ -27,11 +27,11 @@ public class ReportIssuePage {
         PageFactory.initElements(driver, this);
     }
 
-    public void createIssue(){
+    public void createIssue() {
 
-    summaryInput.sendKeys("Summary");
-    descriptionInput.sendKeys("Description");
-    submitIssueButton.click();
+        summaryInput.sendKeys("Summary");
+        descriptionInput.sendKeys("Description");
+        submitIssueButton.click();
 
     }
 

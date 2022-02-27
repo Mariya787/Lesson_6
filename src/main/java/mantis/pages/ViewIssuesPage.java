@@ -16,6 +16,12 @@ public class ViewIssuesPage {
     @FindBy(css = "#buglist tbody tr")
     private List<WebElement> issues;
 
+    @FindBy(xpath = "//*[@id=\"buglist\"]/tbody/tr[1]/td[11]")
+    public WebElement firstIssue;
+
+    @FindBy(xpath = "//*[@id=\"buglist\"]/tbody/tr[1]/td[4]/a")
+    public WebElement firstIssueButton;
+
 
     public ViewIssuesPage(WebDriver driver) {
         this.driver = driver;
@@ -25,6 +31,14 @@ public class ViewIssuesPage {
 
     public int countIssues() {
         return issues.size();
+    }
+
+    public String getIssueName() {
+        return firstIssue.getText();
+    }
+
+    public void goToFirstIssuePage() {
+        firstIssueButton.click();
     }
 
 }
