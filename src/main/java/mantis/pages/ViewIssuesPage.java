@@ -16,10 +16,10 @@ public class ViewIssuesPage {
     @FindBy(css = "#buglist tbody tr")
     private List<WebElement> issues;
 
-    @FindBy(xpath = "//*[@id=\"buglist\"]/tbody/tr[1]/td[11]")
+    @FindBy(xpath = "//*[@id='buglist']/tbody/tr[1]/td[11]")
     public WebElement firstIssue;
 
-    @FindBy(xpath = "//*[@id=\"buglist\"]/tbody/tr[1]/td[4]/a")
+    @FindBy(xpath = "//*[@id='buglist']/tbody/tr[1]/td[4]/a")
     public WebElement firstIssueButton;
 
 
@@ -33,7 +33,7 @@ public class ViewIssuesPage {
         return issues.size();
     }
 
-    public String getIssueName() {
+    public String getLastCreatedIssueName() {
         return firstIssue.getText();
     }
 

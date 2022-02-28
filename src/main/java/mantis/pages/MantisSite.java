@@ -10,6 +10,7 @@ public class MantisSite {
     private ViewIssuesPage viewIssuesPage;
     private ReportIssuePage reportIssuePage;
     private FirstIssuePage firstIssuePage;
+    private DeleteIssueConfirmationPage deleteIssueConfirmationPage;
 
     public MantisSite(WebDriver driver) {
         this.driver = driver;
@@ -20,6 +21,7 @@ public class MantisSite {
         viewIssuesPage = new ViewIssuesPage(driver);
         reportIssuePage = new ReportIssuePage(driver);
         firstIssuePage = new FirstIssuePage(driver);
+        deleteIssueConfirmationPage = new DeleteIssueConfirmationPage(driver);
     }
 
     public void login(String login, String password) {
@@ -50,5 +52,8 @@ public class MantisSite {
     public FirstIssuePage getFirstIssuePage(){
         return firstIssuePage;
     }
+
+    public DeleteIssueConfirmationPage getDeleteIssueConfirmationPage(){ return deleteIssueConfirmationPage; }
+
 
 }

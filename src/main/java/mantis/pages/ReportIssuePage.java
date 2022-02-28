@@ -17,7 +17,7 @@ public class ReportIssuePage {
     @FindBy(css = "#description")
     private WebElement descriptionInput;
 
-    @FindBy(xpath = "//*[@id='report_bug_form']/div/div[2]/div[2]/input")
+    @FindBy(css = "[value = 'Submit Issue']")
     private WebElement submitIssueButton;
 
 
@@ -27,13 +27,12 @@ public class ReportIssuePage {
         PageFactory.initElements(driver, this);
     }
 
-    public void createIssue() {
+    public void createIssue(String summary, String description) {
 
-        summaryInput.sendKeys("Summary");
-        descriptionInput.sendKeys("Description");
+        summaryInput.sendKeys(summary);
+        descriptionInput.sendKeys(description);
         submitIssueButton.click();
 
     }
-
 
 }

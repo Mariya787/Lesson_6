@@ -16,16 +16,16 @@ public class ReportIssueTest extends BaseTest {
         mantisSite.login("admin", "admin20");
 
         mantisSite.getMainPage().goToReportIssuePage();
-        mantisSite.getReportIssuePage().createIssue();
+        mantisSite.getReportIssuePage().createIssue("Summary", "Description");
         mantisSite.getMainPage().goToViewIssuesPage();
-        Assertions.assertEquals("Summary", mantisSite.getViewIssuesPage().getIssueName());
+        Assertions.assertEquals("Summary", mantisSite.getViewIssuesPage().getLastCreatedIssueName());
 
         mantisSite.getViewIssuesPage().goToFirstIssuePage();
         Assertions.assertTrue(mantisSite.getFirstIssuePage().getFirstIssueName().contains("Summary"));
 
-        mantisSite.getFirstIssuePage().deleteIssue();
-        driver.findElement(By.cssSelector("#action-group-div [value='Delete Issues'] ")).click();
-        Assertions.assertNotEquals("Summary", mantisSite.getViewIssuesPage().getIssueName());
+        mantisSite.getFirstIssuePage().delete();
+        mantisSite.getDeleteIssueConfirmationPage().deleteIssues();
+        Assertions.assertNotEquals("Summary", mantisSite.getViewIssuesPage().getLastCreatedIssueName());
 
     }
 }
